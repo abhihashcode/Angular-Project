@@ -1,0 +1,76 @@
+nav{
+    box-shadow: 3px 4px 3px #c27c7cee;
+    position: fixed;
+    z-index: 3333;
+    width: 100%;
+}
+
+.data-container{
+    border:1px solid gray;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.table-header{
+  font-size: 25px;
+  border-bottom: 0.4px solid gray;
+  margin-bottom: 20px;
+}
+
+.navbar-nav{
+    margin: auto;
+    position: relative;
+   font-weight: bolder;
+   font-size: 15px;
+}
+
+.main-container .navbar-brand{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.navbar-nav li{
+    margin-left: 30px;
+    border: 1px solid white;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.carousel-inner .carousel-item img{
+    height: 90vh;
+}
+
+.card{
+   margin-top: 30px;
+   padding: 10px;
+}
+
+.card img{
+  height: 150px;
+}
+
+.btn-edit{
+    margin-right: 20px;
+}
+
+.logout{
+    margin-left: 1300px;
+}
+
+.register-data{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 0.2px solid gray;
+}
+
+@media screen  and (max-width:1500px){
+    .navbar-nav li{
+        margin-bottom: 20px;
+    }
+    .logout{
+        margin-left: 0px;
+    }
+}

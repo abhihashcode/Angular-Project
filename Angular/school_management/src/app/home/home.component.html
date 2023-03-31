@@ -1,0 +1,161 @@
+<!--   
+<button pButton type="button" label="Click" ></button>
+<p-button label="Click" ></p-button> -->
+<p-toast></p-toast>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+<app-navbar></app-navbar>
+
+  <!-- Caraousel -->
+
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://c1.wallpaperflare.com/preview/1/1010/561/table-work-computer-study-reading.jpg" class="d-block w-100 h-100" alt="Image1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://c1.wallpaperflare.com/preview/767/17/165/study-school-learn-education-studying.jpg" class="d-block w-100 h-100" alt="Image2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://wallpapercave.com/wp/wp1895428.jpg" class="d-block w-100 h-100" alt="Image3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Card -->
+
+  <div class="container">
+    <div class="row">
+        <h1 class="text-center">Our Services</h1>
+        <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="https://picsum.photos/id/7/200/300" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="https://picsum.photos/id/7/200/300" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://picsum.photos/id/7/200/300" class="card-img-top" alt="">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                </div>
+    </div>
+  </div>
+
+
+  <div class="container mt-4  mb-5 data-container">
+    <div class="row">
+
+         <div class="col-md-12">
+            <div class="register-data">
+                <p>Total Student:{{tabledatalength}}</p>
+                <h5 class="text-center">Registered User Information</h5>
+            </div>
+          <p-table [value]="tabledata" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>UserName</th>
+                    <th>Password</th>
+                    <th>Age</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-users>
+                <tr>
+                    <td>{{ users.id }}</td>
+                    <td>{{ users.name }}</td>
+                    <td>{{ users.email }}</td>
+                    <td>{{ users.username }}</td>
+                    <td>{{ users.password }}</td>
+                    <td>{{ users.age }}</td>
+                    <!-- <td><img src='\\192.168.1.123\ngdata\kazyplayimages\profile_img\'{{users.image}} alt="UserImage" style="width:50px;height: 50px;border-radius: 50%;"/></td> -->
+                    <td><img src='http://192.168.1.123/kazyimages/profile_img/{{users.image}}' alt="UserImage" style="width:50px;height: 50px;border-radius: 50%;"/></td>
+                    <td><button class="btn btn-danger btn-edit " (click)="deleteUser(users.id)">Delete</button><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editUser(users.id)">Edit</button></td>
+                </tr>
+            </ng-template>
+        </p-table> 
+
+          </div>
+
+    </div>
+  </div>
+
+
+<!-- <div class="modal fade" id="exampleModal" style="z-index: 1000000;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<p-dialog header="Edit Data" [(visible)]="visible" [style]="{width: '30vw'}">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body" >
+        <form [formGroup]="editform" >
+          <div class="img-shown show hidden" style="display:flex;justify-content: center;" >
+            <img   [src]="url" height="100" width="100" style="margin: 3px;border-radius: 50% !important;"> <br/>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text"   class="form-control" formControlName="fnname" name="fnname" id="name">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="text"   class="form-control" formControlName="emmail" name="emmail" id="email">
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">UserName</label>
+          <input type="text"   class="form-control" formControlName="ussername" name="ussername" id="username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="text"   class="form-control" formControlName="passsword" name="passsword" id="password">
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input type="text"   class="form-control" formControlName="agee" name="agee" id="age">
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Image</label>
+          <input id="file" type="file" class="form-control" (change)="onFileChange($event)" />
+        </div>
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="updateUser()">Update</button>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+</p-dialog>

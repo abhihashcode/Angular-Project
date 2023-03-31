@@ -1,0 +1,85 @@
+
+<div class="container">
+    <p-toast [baseZIndex]="5000"></p-toast>
+    <div class="row main">
+        <div class="main-login main-center">
+        <h5 class="text-center">Signup To Access</h5>
+            <form [formGroup]="register" enctype="multipart/form-data" method="post" >
+
+                <div class="img-shown show hidden" style="display:flex;justify-content: center;" >
+                    <img   [src]="url" height="100" width="100" style="margin: 3px;border-radius: 50% !important;"> <br/>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" formControlName="name" name="name" id="name"  placeholder="Enter your Name"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control"formControlName="email"  name="email" id="email"  placeholder="Enter your Email"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="cols-sm-2 control-label">Username</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" formControlName="username" name="username" id="username"  placeholder="Enter your Username"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" formControlName="password" name="password" id="password"  placeholder="Enter your Password"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age" class="cols-sm-2 control-label">Your Age</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="number" class="form-control" formControlName="age" name="age" id="age"  placeholder="Confirm your Age"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="image" class="cols-sm-2 control-label">Your Image</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input id="file" 
+                            type="file" 
+                            class="form-control"
+                            multiple="" 
+                            (change)="onFileChange($event)"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="submit" class="btn btn-primary btn-lg btn-block register-button" id="button" (click)="registerSubmit()" value="Register">
+                </div>
+                <p>Already Have an Account? <a href="/" class="button text-light">Login</a></p>
+                
+            </form>
+        </div>
+    </div>
+</div>
